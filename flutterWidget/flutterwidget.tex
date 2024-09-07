@@ -1,0 +1,434 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{kotex}
+
+\definecolor{codegray}{gray}{0.9}
+\definecolor{codeblue}{rgb}{0.0, 0.0, 1.0}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{codeblue},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python
+}
+
+\lstset{style=mystyle}
+
+\title{Flutter 기본 위젯 정리}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{레이아웃}
+\subsection*{Container}
+회화, 위치 지정 및 크기 조정을 위한 일반적인 위젯을 결합한 편리한 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Container(
+    width: 100,
+    height: 100,
+    color: Colors.blue
+)
+\end{lstlisting}
+
+\subsection*{Row}
+자식 위젯을 가로로 배열하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Row(
+    children: <Widget>[
+        Text('Hello'),
+        Text('World')
+    ]
+)
+\end{lstlisting}
+
+\subsection*{Column}
+자식 위젯을 세로로 배열하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Column(
+    children: <Widget>[
+        Text('Hello'),
+        Text('World')
+    ]
+)
+\end{lstlisting}
+
+\subsection*{Stack}
+자식 위젯을 서로 위에 쌓아 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Stack(
+    children: <Widget>[
+        Text('First'),
+        Text('Second')
+    ]
+)
+\end{lstlisting}
+
+\subsection*{SizedBox}
+고정된 크기를 가지는 상자를 만드는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+SizedBox(
+    width: 100,
+    height: 100
+)
+\end{lstlisting}
+
+\subsection*{Padding}
+자식 위젯에 패딩을 추가하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Padding(
+    padding: EdgeInsets.all(16.0),
+    child: Text('Hello')
+)
+\end{lstlisting}
+
+\subsection*{Center}
+자식 위젯을 중앙에 배치하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Center(
+    child: Text('Hello')
+)
+\end{lstlisting}
+
+\subsection*{Align}
+자식 위젯을 정렬하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Align(
+    alignment: Alignment.topRight,
+    child: Text('Hello')
+)
+\end{lstlisting}
+
+\subsection*{Expanded}
+자식 위젯을 가능한 한 많이 확장시키는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Expanded(
+    child: Text('Hello')
+)
+\end{lstlisting}
+
+\subsection*{Flexible}
+자식 위젯을 유연하게 확장시키는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Flexible(
+    child: Text('Hello')
+)
+\end{lstlisting}
+
+\subsection*{Spacer}
+Row나 Column에서 빈 공간을 차지하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Spacer()
+\end{lstlisting}
+
+\section*{텍스트 및 이미지}
+\subsection*{Text}
+단일 스타일로 텍스트를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Text(
+    'Hello, World!',
+    style: TextStyle(fontSize: 20)
+)
+\end{lstlisting}
+
+\subsection*{RichText}
+여러 텍스트 스타일을 포함할 수 있는 텍스트 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+RichText(
+    text: TextSpan(
+        children: [
+            TextSpan(text: 'Hello '),
+            TextSpan(text: 'World')
+        ]
+    )
+)
+\end{lstlisting}
+
+\subsection*{Image}
+이미지를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Image.network(
+    'https://flutter.dev/assets/homepage/carousel/slide_1-bg-2x-3d45e5c97d6a2a80e0413d1c27d9f5cf9b9c39e426a730ec5a58c7e3a9f6a4c7.png'
+)
+\end{lstlisting}
+
+\subsection*{Icon}
+아이콘 글리프로 그려진 그래픽 아이콘 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Icon(
+    Icons.favorite,
+    color: Colors.pink,
+    size: 24.0
+)
+\end{lstlisting}
+
+\section*{입력}
+\subsection*{Button}
+다양한 유형의 버튼이 있는 머티리얼 디자인 버튼입니다: ElevatedButton, TextButton, OutlinedButton.
+\textbf{예시:}
+\begin{lstlisting}
+ElevatedButton(
+    onPressed: () {},
+    child: Text('Click Me')
+)
+\end{lstlisting}
+
+\subsection*{TextField}
+사용자로부터 텍스트 입력을 받을 수 있는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+TextField()
+\end{lstlisting}
+
+\subsection*{Checkbox}
+사용자가 선택할 수 있는 체크박스 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Checkbox(
+    value: true,
+    onChanged: (bool? newValue) {}
+)
+\end{lstlisting}
+
+\subsection*{Radio}
+라디오 버튼 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Radio(
+    value: 1,
+    groupValue: 1,
+    onChanged: (int? newValue) {}
+)
+\end{lstlisting}
+
+\subsection*{Switch}
+켜기/끄기 스위치 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Switch(
+    value: true,
+    onChanged: (bool newValue) {}
+)
+\end{lstlisting}
+
+\subsection*{Slider}
+사용자가 값을 선택할 수 있는 슬라이더 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Slider(
+    value: 50,
+    min: 0,
+    max: 100,
+    onChanged: (double newValue) {}
+)
+\end{lstlisting}
+
+\subsection*{DatePicker}
+날짜를 선택할 수 있는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(2000),
+    lastDate: DateTime(2100)
+)
+\end{lstlisting}
+
+\subsection*{TimePicker}
+시간을 선택할 수 있는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+showTimePicker(
+    context: context,
+    initialTime: TimeOfDay.now()
+)
+\end{lstlisting}
+
+\subsection*{DropdownButton}
+드롭다운 목록을 표시하는 버튼 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+DropdownButton(
+    items: [
+        DropdownMenuItem(child: Text('One')),
+        DropdownMenuItem(child: Text('Two'))
+    ],
+    onChanged: (value) {}
+)
+\end{lstlisting}
+
+\subsection*{PopupMenuButton}
+팝업 메뉴를 표시하는 버튼 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+PopupMenuButton(
+    itemBuilder: (context) => [
+        PopupMenuItem(child: Text('One')),
+        PopupMenuItem(child: Text('Two'))
+    ]
+)
+\end{lstlisting}
+
+\section*{내비게이션 및 구조}
+\subsection*{Scaffold}
+기본 머티리얼 디자인 시각적 레이아웃 구조를 구현합니다.
+\textbf{예시:}
+\begin{lstlisting}
+Scaffold(
+    appBar: AppBar(title: Text('App')),
+    body: Center(child: Text('Hello, world!'))
+)
+\end{lstlisting}
+
+\subsection*{AppBar}
+머티리얼 디자인 애플리케이션의 상단 앱바입니다.
+\textbf{예시:}
+\begin{lstlisting}
+AppBar(
+    title: Text('Title')
+)
+\end{lstlisting}
+
+\subsection*{BottomNavigationBar}
+앱 하단에 네비게이션 바를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+BottomNavigationBar(
+    items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings')
+    ]
+)
+\end{lstlisting}
+
+\subsection*{Drawer}
+앱의 왼쪽에 표시되는 드로어 메뉴 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+Drawer(
+    child: ListView(
+        children: <Widget>[
+            ListTile(title: Text('Item 1')),
+            ListTile(title: Text('Item 2'))
+        ]
+    )
+)
+\end{lstlisting}
+
+\subsection*{TabBar}
+탭을 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+TabBar(
+    tabs: [
+        Tab(text: 'Tab 1'),
+        Tab(text: 'Tab 2')
+    ]
+)
+\end{lstlisting}
+
+\subsection*{TabBarView}
+탭에 따라 다른 콘텐츠를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+TabBarView(
+    children: [
+        Text('Content 1'),
+        Text('Content 2')
+    ]
+)
+\end{lstlisting}
+
+\subsection*{FloatingActionButton}
+앱에서 플로팅 액션 버튼을 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+FloatingActionButton(
+    onPressed: () {},
+    child: Icon(Icons.add)
+)
+\end{lstlisting}
+
+\section*{다이얼로그 및 팝업}
+\subsection*{SnackBar}
+일시적인 메시지를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Hello'))
+)
+\end{lstlisting}
+
+\subsection*{Dialog}
+대화 상자를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+        title: Text('Title'),
+        content: Text('Content'),
+        actions: [
+            TextButton(
+                onPressed: () {},
+                child: Text('OK')
+            )
+        ]
+    )
+)
+\end{lstlisting}
+
+\subsection*{AlertDialog}
+경고 대화 상자를 표시하는 위젯입니다.
+\textbf{예시:}
+\begin{lstlisting}
+showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+        title: Text('Alert'),
+        content: Text('This is an alert dialog'),
+        actions: [
+            TextButton(
+                onPressed: () {
+                    Navigator.of(context).pop();
+                },
+                child: Text('OK')
+            )
+        ]
+    )
+)
+\end{lstlisting}
+
+\end{document}

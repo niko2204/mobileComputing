@@ -16,7 +16,23 @@ class MyApp extends StatelessWidget {
             title: Text('Hello World'),
           ),
           body: MyWidget(),
-        )
+        //   bottomNavigationBar: BottomNavigationBar(
+        //     items: [
+        //       BottomNavigationBarItem(
+        //         icon: Icon(Icons.home),
+        //         label: 'Home',
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Icon(Icons.search),
+        //         label: 'Search',
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Icon(Icons.settings),
+        //         label: 'Settings',
+        //       ),
+        //     ],
+        // ),
+    )
     );
   }
 }
