@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   english_words: ^4.0.0
   math_expressions: ^2.1.0
+  webview_all: ^0.4.5
 
 dev_dependencies:
   flutter_test:
